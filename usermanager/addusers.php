@@ -8,7 +8,7 @@
         </div>
 
         <br>
-        
+
         <div class="main">
             <form id="addusers" action="adduser.php" method="post">
                 <div class="form-group row">
@@ -32,11 +32,18 @@
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Password:</label>
                     <div class="col-sm-10">
-                    <input type="password" name="PW" class="form-control" id="inputPassword" required>
+                    <input type="password" name="PW" class="form-control" required>
                     </div>
                 </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Confirm Password:</label>
+                    <div class="col-sm-10">
+                    <input type="password" name="conPW" class="form-control" required>
+                    </div>
+                </div>
+                <div><button class="mx-auto" type="submit">Register</button></div>
             </form>
-            <h2 class="text-center"><a href="../index.php">Submit</a></h2>
+            <br>
         </div>
 </body>
 <?php include('../views/footer.php') ?>

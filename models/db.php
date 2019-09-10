@@ -1,5 +1,5 @@
 <?php
-  $dsn = 'mysql:host=localhost;dbname=vacation_reviews';
+  $dsn = 'mysql:host=localhost;port=3308;dbname=vacation_reviews';
   $username = 'root';
   $pw = '';
 
