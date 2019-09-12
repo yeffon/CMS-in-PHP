@@ -10,13 +10,13 @@ $PW = trim(filter_input(INPUT_POST, 'PW', FILTER_SANITIZE_STRING));
     } else {
         require_once('../models/db.php');
 
-        $stmt = $db->prepare('SELECT ID, PW FROM users WHERE Email = :email');
-        $stmt->bindParam(':email', $Email);
-        $stmt->execute();
-        $count = $stmt->rowCount();
+        $statement = $db->prepare('SELECT ID, PW FROM users WHERE Email = :email');
+        $statement->bindParam(':email', $Email);
+        $statement->execute();
+        $count = $statement->rowCount();
     
         if ($count > 0) {
-            $result = $stmt->fetch();
+            $result = $statement->fetch();
     
             // Account exists, verify the password.
             if (password_verify($PW, $result['PW'])) {
