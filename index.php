@@ -48,12 +48,12 @@
                 <div class="col-sm-6">
                     <div class="card">
                         <div class="card-body">
-                            <?php if(!isset ($_SESSION['name']) || $_SESSION['name'] !== "war@peace.com" ): ?>
+                            <?php if(!isset ($_SESSION['name'])): ?>
                                 <h5 class="card-title"> <?php echo $review['title']; ?></h5>
                                 <p class="card-text"><?php echo $review['content']; ?></p>
                                 <?php echo $review['timestamp']; ?>
                             
-                            <?php else : ?>
+                            <?php elseif ($_SESSION['userID'] == $review['userFK']) : ?>
                                 <h5 class="card-title"> <?php echo $review['title']; ?></h5>
                                 <p class="card-text"><?php echo $review['content']; ?></p>
                                 <?php echo $review['timestamp']; ?>
@@ -67,6 +67,11 @@
                                         <input type="submit" class="btn btn-danger" value="Delete">
                                     </form>
                                 </div>
+                            <?php else : ?>
+                                <h5 class="card-title"> <?php echo $review['title']; ?></h5>
+                                <p class="card-text"><?php echo $review['content']; ?></p>
+                                <?php echo $review['timestamp']; ?>
+
                             <?php endif; ?>
                         </div>
                    </div>

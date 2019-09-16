@@ -1,5 +1,5 @@
 <?php
-session_start();
+  session_start();
 
   $title = trim(filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING));
   $content = trim(filter_input(INPUT_POST, 'content', FILTER_SANITIZE_STRING));
@@ -10,11 +10,12 @@ session_start();
   } else {
     require_once('../models/db.php');
 
-    $statement = $db->prepare('INSERT INTO reviews(title, content)
-                               VALUES(:title, :content)');
+    $statement = $db->prepare('INSERT INTO reviews(title, content, userFK)
+                               VALUES(:title, :content, :userFK)');
 
     $statement->bindParam(':title', $title);
     $statement->bindParam(':content', $content);
+    $statement->bindParam(':userFK', $_SESSION['userID']);
 
     $statement->execute();
 

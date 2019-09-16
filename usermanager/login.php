@@ -23,6 +23,7 @@ $PW = trim(filter_input(INPUT_POST, 'PW', FILTER_SANITIZE_STRING));
                 session_regenerate_id();
                 $_SESSION['loggedin'] = TRUE;
                 $_SESSION['name'] = $_POST['Email'];
+                $_SESSION['userID'] = $result['ID'];
                 echo 'Welcome ' . $_SESSION['name'] . '!';
             } else {
                 echo 'Incorrect password!';
