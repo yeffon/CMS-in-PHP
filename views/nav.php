@@ -15,7 +15,7 @@
       <?php else : ?>
         <li class="nav-item">
           <span class="navbar-text">
-            Welcome, <?php echo $_SESSION['name'] ?>
+            <?php echo $_SESSION['name'] ?>
           </span>
         </li>
         <li class="nav-item">
